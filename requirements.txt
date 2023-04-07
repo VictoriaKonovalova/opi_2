@@ -1,0 +1,21 @@
+black @ file:///C:/ci/black_1660221726201/work
+certifi==2022.12.7
+charset-normalizer==2.1.1
+click @ file:///C:/ci/click_1646056762388/work
+colorama @ file:///C:/b/abs_a9ozq0l032/croot/colorama_1672387194846/work
+distlib==0.3.6
+filelock==3.9.0
+flake8 @ file:///C:/b/abs_9f6_n1jlpc/croot/flake8_1674581816810/work
+idna==3.4
+mccabe @ file:///opt/conda/conda-bld/mccabe_1644221741721/work
+mypy-extensions==0.4.3
+numpy==1.24.2
+pathspec @ file:///C:/b/abs_9cu5_2yb3i/croot/pathspec_1674681579249/work
+platformdirs==3.0.0
+pycodestyle @ file:///C:/b/abs_d77nxvklcq/croot/pycodestyle_1674267231034/work
+pyflakes @ file:///C:/b/abs_6dve6e13zh/croot/pyflakes_1674165143327/work
+requests==2.28.1
+tomli @ file:///C:/Windows/TEMP/abs_ac109f85-a7b3-4b4d-bcfd-52622eceddf0hy332ojo/croots/recipe/tomli_1657175513137/work
+urllib3==1.26.13
+virtualenv==20.19.0
+wincertstore==0.2
