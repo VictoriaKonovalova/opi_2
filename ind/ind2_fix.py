@@ -22,8 +22,6 @@ if len(sys.argv) != 2:
 
 with open(sys.argv[1], "r", encoding="utf-8") as f:
     inf = f.read()
-    # Открываем на чтение файл, имя которого было передано в командной строке
-    inf = open(sys.argv[1], "r", encoding="utf-8")
     frequence = dict()  # создаю пустой словарь
     line = inf.readline()
     while line != "":
@@ -42,6 +40,5 @@ with open(sys.argv[1], "r", encoding="utf-8") as f:
             else:
                 frequence[letter] = 1
         line = inf.readline()
-    inf.close()
     for letter in frequence:
         print(letter, ":", frequence[letter])
