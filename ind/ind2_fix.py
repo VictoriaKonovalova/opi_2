@@ -15,30 +15,34 @@
 # импортируем системный модуль
 import sys
 
-# Отслеживаем,чтобы программа обязательно запускалась с одним переданным параметром
-if len(sys.argv) != 2:
-    print("Ошибка!Имя файла необходимо передать в качестве аргумента.")
-    sys.exit(1)
+if __name__ == "__main__":
+    # Отслеживаем,чтобы программа обязательно запускалась с одним переданным параметром
+    if len(sys.argv) != 2:
+        print("Ошибка!Имя файла необходимо передать в качестве аргумента.")
+        sys.exit(1)
 
-with open(sys.argv[1], "r", encoding="utf-8") as f:
-    inf = f.read()
-    frequence = dict()  # создаю пустой словарь
-    line = inf.readline()
-    while line != "":
-        line = line.replace(".", " ")
-        line = line.replace(",", " ")
-        line = line.replace(":", " ")
-        line = line.replace("!", " ")
-        line = line.replace("-", " ")
-        line = line.replace("?", " ")
-        line = line.replace(" ", "")
-        line = line.lower()
-        line = line.rstrip()
-        for letter in line:
-            if letter in frequence:
-                frequence[letter] += 1
-            else:
-                frequence[letter] = 1
-        line = inf.readline()
-    for letter in frequence:
-        print(letter, ":", frequence[letter])
+    try:
+        with open(sys.argv[1], "r", encoding="utf-8") as f:
+            frequence = dict()  # создаю пустой словарь
+            line = f.readline()
+            while line != "":
+                line = line.replace(".", " ")
+                line = line.replace(",", " ")
+                line = line.replace(":", " ")
+                line = line.replace("!", " ")
+                line = line.replace("-", " ")
+                line = line.replace("?", " ")
+                line = line.replace(" ", "")
+                line = line.lower()
+                line = line.rstrip()
+                for letter in line:
+                    if letter in frequence:
+                        frequence[letter] += 1
+                    else:
+                        frequence[letter] = 1
+                line = f.readline()
+            f.close()
+            for letter in frequence:
+                print(letter, ":", frequence[letter])
+    except IOError:
+        print("Ошибка доступа к файлу", file=sys.stderr)
