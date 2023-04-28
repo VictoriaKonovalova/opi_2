@@ -23,26 +23,27 @@ if __name__ == "__main__":
 
     try:
         with open(sys.argv[1], "r", encoding="utf-8") as f:
-            frequence = dict()  # создаю пустой словарь
-            line = f.readline()
-            while line != "":
-                line = line.replace(".", " ")
-                line = line.replace(",", " ")
-                line = line.replace(":", " ")
-                line = line.replace("!", " ")
-                line = line.replace("-", " ")
-                line = line.replace("?", " ")
-                line = line.replace(" ", "")
-                line = line.lower()
-                line = line.rstrip()
-                for letter in line:
-                    if letter in frequence:
-                        frequence[letter] += 1
-                    else:
-                        frequence[letter] = 1
-                line = f.readline()
-            f.close()
-            for letter in frequence:
-                print(letter, ":", frequence[letter])
+            content = f.readlines()
+        if not content:
+            print("Ошибка! Файл пуст.", file=sys.stderr)
+            sys.exit(1)
+        frequence = dict()  # создаю пустой словарь
+        for line in content:
+            line = line.replace(".", " ")
+            line = line.replace(",", " ")
+            line = line.replace(":", " ")
+            line = line.replace("!", " ")
+            line = line.replace("-", " ")
+            line = line.replace("?", " ")
+            line = line.replace(" ", "")
+            line = line.lower()
+            line = line.rstrip()
+            for letter in line:
+                if letter in frequence:
+                    frequence[letter] += 1
+                else:
+                    frequence[letter] = 1
+        for letter in frequence:
+            print(letter, ":", frequence[letter])
     except IOError:
         print("Ошибка доступа к файлу", file=sys.stderr)
